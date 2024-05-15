@@ -1,26 +1,26 @@
-package list.pesquisa;
+package java.list.pesquisa;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CatalogoLivros {
     //atributo
-    private List<Livro>livroList;
+    private final List<Livro>livroList;
     // construtor
     public CatalogoLivros() {
-        this.livroList = new ArrayList<>();
+        livroList = new ArrayList<>();
     }
     //implementando metodos
 
-    public void adicionarLivro(String titulo, String autor, int anoPublicacao){
-        livroList.add(new Livro(titulo, autor, anoPublicacao));
+    public void adicionarLivro(final String titulo, final String autor, final int anoPublicacao){
+        this.livroList.add(new Livro(titulo, autor, anoPublicacao));
 
     }
 
-    public List<Livro> pesquisarPorAutor(String autor) {
-        List<Livro>livrosPorAutor = new ArrayList<>();
-        if(!livroList.isEmpty()){
-            for(Livro l:livroList){
+    public List<Livro> pesquisarPorAutor(final String autor) {
+        final List<Livro>livrosPorAutor = new ArrayList<>();
+        if(!this.livroList.isEmpty()){
+            for(final Livro l: this.livroList){
                 if(l.getAutor().equalsIgnoreCase(autor)){
                     livrosPorAutor.add(l);
                 }
@@ -29,10 +29,10 @@ public class CatalogoLivros {
         return livrosPorAutor;
     }
 
-    public List<Livro> pesquisarPorIntervaloAnos(int anoInicial, int anoFinal){
-        List<Livro>livrosPorIntervaloAnos = new ArrayList<>();
-        if(!livroList.isEmpty()){
-            for(Livro l:livroList){
+    public List<Livro> pesquisarPorIntervaloAnos(final int anoInicial, final int anoFinal){
+        final List<Livro>livrosPorIntervaloAnos = new ArrayList<>();
+        if(!this.livroList.isEmpty()){
+            for(final Livro l: this.livroList){
                 if(l.getAnoPublicacao()>= anoInicial && l.getAnoPublicacao()<= anoFinal){
                     livrosPorIntervaloAnos.add(l);
                 }
@@ -40,12 +40,12 @@ public class CatalogoLivros {
         }
         return livrosPorIntervaloAnos;
     }
-    public Livro pesquisarPorTitulo(String titulo){
-        Livro livroPorTitulo = null;
-        if(!livroList.isEmpty()){
-            for(Livro l:livroList){
+    public Livro pesquisarPorTitulo(final String titulo){
+         Livro livroPorTitulo = null;
+        if(!this.livroList.isEmpty()){
+            for(final Livro l: this.livroList){
                 if(l.getTitulo().equalsIgnoreCase(titulo)){
-                    livrosPorTitulo.add(l);
+                    livroPorTitulo = l;
                     break;
                 }
             }
@@ -53,8 +53,8 @@ public class CatalogoLivros {
         return livroPorTitulo;
     }
 
-    public static void main(String[] args) {
-        CatalogoLivros catalogoLivros = new CatalogoLivros();
+    public static void main(final String[] args) {
+        final CatalogoLivros catalogoLivros = new CatalogoLivros();
         catalogoLivros.adicionarLivro("Livro 1", "Autor 1", 2020);
         catalogoLivros.adicionarLivro("Livro 1", "Autor 2", 2021);
         catalogoLivros.adicionarLivro("Livro 2", "Autor 2", 2022);
