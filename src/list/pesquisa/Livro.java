@@ -1,28 +1,30 @@
 package list.pesquisa;
 
-/**
- * Atributos do objeto livro
- */
 public class Livro {
+    // atributos
     private String titulo;
     private String autor;
     private int anoPublicacao;
-    public Livro() {
+    // construtor
+    public Livro(final String titulo, final String autor, final int anoPublicacao) {
         this.titulo = titulo;
         this.autor = autor;
         this.anoPublicacao = anoPublicacao;
     }
-    public Livro(String titulo, String autor, int anoPublicacao) {
-    }
+    // getter
+
     public String getTitulo() {
         return this.titulo;
     }
+
     public String getAutor() {
         return this.autor;
     }
+
     public int getAnoPublicacao() {
         return this.anoPublicacao;
     }
+
     @Override
     public String toString() {
         return "Livro{" +
